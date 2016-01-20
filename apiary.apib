@@ -114,6 +114,44 @@ Recupera la lista de doctores disponibles para el visitador identificado con un 
             }
         
 
+       
+## Especialidades [/api/v1/specialities]
+
+### Lista de especialidades [GET]
+
+Recupera una lista con todas las especialidades.
+
+    + Parameters
+
+    - user_token (string): Token de usuario
+    - app_version (string): Versión de la app móvil
+
++ Request (application/json)
+    
+    + Headers
+
+            Authorization: Basic API_KEY
+            
+
++ Response 200 (application/json)
+
+        
+            {
+                "specialities": [
+                    {
+                        "name": "GERIATRIA",
+                        "code": "002ZSKC",
+                    }, 
+                    {
+                        "name": "MEDICINA DE FAMILIA",
+                        "code": "13002AA",
+                    }, 
+                    }
+                ],
+                "error_code": "",
+                "error_message": ""
+            }
+        
         
 ## Plantillas [/api/v1/templates]
 
