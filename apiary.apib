@@ -244,7 +244,58 @@ El servicio retornará un identificador de documento `doc_id` a través del cual
                 "error_message": ""
             }
         
+
+
+### Crear nuevo documento de muestras [POST /api/v1/samples/]
+
+Este servicio permite generar el PDF de muestras a firmar en base al doctor y las muestras seleccionadas.
+
+    + Parameters
+
+    - user_token (string): Token de usuario
+    - doctor (number): Identificador del doctor seleccionado
+    - app_version (string): Versión de la app móvil
+    - samples (array): Array de duplas con el código de producto y el número de muestras solicitadas
+
+El servicio retornará un identificador de documento `doc_id` a través del cual se podrán realizar las acciones pertinentes sobre él.
+
++ Request (application/json)
+    
+    + Headers
+
+            Authorization: Basic API_KEY
+
+    + Body
+
+            
+                {
+                    "user_token": "b43103c6fa4746459d36e0a73edafc05",
+                    "doctor": 1,
+                    "app_version": "1.0.0",
+                    "samples": [
+                        {
+                            "code": "PROD-1",
+                            "number": 4
+                        },
+                        {
+                            "code": "PROD-2",
+                            "number": 1
+                        }
+                    ]
+                }
+            
+
++ Response 201 (application/json)
+
         
+            {
+                "doc_id": "ce0c38a0-88b1-4060-9e50-956ba15c878f",
+                "error_code": "",
+                "error_message": ""
+            }
+        
+  
+
 ### Documentos pendientes de firma [GET]
 
 Recupera la lista de documentos pendientes de firma para el visitador identificado.
@@ -405,7 +456,7 @@ Recupera una lista con todas los productos de la división y línea comercial de
 
     - user_token (string): Token de usuario
     - app_version (string): Versión de la app móvil
-    - doctor_id (number): Identificador del doctor
+    - doctor (number): Identificador del doctor
 
 + Request (application/json)
     
