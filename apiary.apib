@@ -389,3 +389,49 @@ Envía a la plataforma el documento firmado en la app.
                     "error_code": "",
                     "error_message": ""
                 }
+                
+                
+                
+                
+
+       
+## Productos [/api/v1/products]
+
+### Lista de productos [GET]
+
+Recupera una lista con todas los productos de la división y línea comercial del usuario. Esta lista contiene además el número de muestras por producto que pueden entregarse al doctor indicado.
+
+    + Parameters
+
+    - user_token (string): Token de usuario
+    - app_version (string): Versión de la app móvil
+    - doctor_id (number): Identificador del doctor
+
++ Request (application/json)
+    
+    + Headers
+
+            Authorization: Basic API_KEY
+            
+
++ Response 200 (application/json)
+
+        
+            {
+                "products": [
+                    {
+                        
+                        "name": "Product-1",
+                        "code": "PRO1",
+                        "pending_samples": 0; 
+                    }, 
+                    {
+                        "name": "Product-2",
+                        "code": "PRO2",
+                        "pending_samples": 3;
+                    }, 
+                    }
+                ],
+                "error_code": "",
+                "error_message": ""
+            }
